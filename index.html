@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zack Cafe — Green Earth, Great Coffee</title>
+  <meta name="description" content="Zack Cafe — artisan coffee, teas and wholesome meals in a cozy green-earth setting." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav id="navbar" class="navbar">
+    <div class="nav-container">
+      <a href="#home" class="nav-logo"><span class="logo-leaf">🌿</span><span class="logo-text">Zack Cafe</span></a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#home" class="nav-link">Home</a></li>
+        <li><a href="#menu" class="nav-link">Menu</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#visit" class="nav-link">Visit Us</a></li>
+      </ul>
+      <button class="cart-btn" id="cart-btn" aria-label="Open cart">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+        <span class="cart-count" id="cart-count">0</span>
+      </button>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- CART DRAWER -->
+  <div class="cart-overlay" id="cart-overlay"></div>
+  <aside class="cart-drawer" id="cart-drawer" aria-label="Shopping cart">
+    <div class="cart-header">
+      <h2 class="cart-title">🛒 Your Order</h2>
+      <button class="cart-close" id="cart-close" aria-label="Close cart">✕</button>
+    </div>
+    <div class="cart-body" id="cart-body">
+      <div class="cart-empty" id="cart-empty">
+        <span>🍃</span>
+        <p>Your cart is empty</p>
+        <small>Add something delicious!</small>
+      </div>
+      <ul class="cart-items" id="cart-items"></ul>
+    </div>
+    <div class="cart-footer" id="cart-footer">
+      <div class="cart-subtotal">
+        <span>Subtotal</span><span id="cart-subtotal">RM 0.00</span>
+      </div>
+      <button class="btn btn-primary btn-full" id="checkout-btn">Place Order</button>
+    </div>
+  </aside>
+
+  <!-- HERO -->
+  <section id="home" class="hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <p class="hero-tagline">A Green Earth Experience</p>
+      <h1 class="hero-title">Where Nature<br /><em>Meets Every Sip</em></h1>
+      <p class="hero-subtitle">Artisan coffee &amp; wholesome meals in a cozy, nature-inspired setting.</p>
+      <div class="hero-actions">
+        <a href="#menu" class="btn btn-primary" id="view-menu-btn">View Menu</a>
+        <a href="#visit" class="btn btn-outline">Find Us</a>
+      </div>
+    </div>
+    <div class="hero-scroll-indicator">
+      <span>Scroll to explore</span>
+      <div class="scroll-arrow"></div>
+    </div>
+  </section>
+
+  <!-- MENU -->
+  <section id="menu" class="section menu-section">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-label">Our Offerings</p>
+        <h2 class="section-title">Explore the Menu</h2>
+        <p class="section-subtitle">Handcrafted with love and the finest ingredients, every day.</p>
+      </div>
+
+      <!-- Tab buttons -->
+      <div class="menu-tabs" role="tablist">
+        <button class="menu-tab active" id="tab-coffee" role="tab" aria-selected="true" aria-controls="panel-coffee" data-target="panel-coffee">☕ Coffee</button>
+        <button class="menu-tab" id="tab-tea" role="tab" aria-selected="false" aria-controls="panel-tea" data-target="panel-tea">🍵 Tea</button>
+        <button class="menu-tab" id="tab-meals" role="tab" aria-selected="false" aria-controls="panel-meals" data-target="panel-meals">🍽️ Meals</button>
+      </div>
+
+      <!-- Coffee Panel -->
+      <div class="menu-panel active" id="panel-coffee" role="tabpanel" aria-labelledby="tab-coffee">
+        <div class="item-grid">
+          <div class="item-card" id="item-espresso">
+            <div class="item-img-wrap"><img src="images/coffee_espresso.png" alt="Espresso" class="item-img" loading="lazy" /></div>
+            <div class="item-info">
+              <h3 class="item-name">Espresso</h3>
+              <p class="item-desc">Bold &amp; intense single shot with a rich crema.</p>
+              <div class="item-footer">
+                <span class="item-price">RM 6.00</span>
+                <button class="add-btn" data-name="Espresso" data-price="6.00" data-img="images/coffee_espresso.png" aria-label="Add Espresso to cart">+ Add</button>
+              </div>
+            </div>
+          </div>
+          <div class="item-card" id="item-flatwhite">
+            <div class="item-img-wrap"><img src="images/coffee_flatwhite.png" alt="Flat White" class="item-img" loading="lazy" /></div>
+            <div class="item-info">
+              <h3 class="item-name">Flat White</h3>
+              <p class="item-desc">Smooth velvety milk with a double ristretto shot.</p>
+              <div class="item-footer">
+                <span class="item-price">RM 9.00</span>
+                <button class="add-btn" data-name="Flat White" data-price="9.00" data-img="images/coffee_flatwhite.png" aria-label="Add Flat White to cart">+ Add</button>
+              </div>
+            </div>
+          </div>
+          <div class="item-card" id="item-caramel-latte">
+            <div class="item-img-wrap"><img src="images/coffee_caramel_latte.png" alt="Caramel Latte" class="item-img" loading="lazy" /></div>
+            <div class="item-info">
+              <h3 class="item-name">Caramel Latte</h3>
+              <p class="item-desc">Sweet caramel swirled into a creamy espresso latte.</p>
+              <div class="item-footer">
+                <span class="item-price">RM 11.00</span>
+                <button class="add-btn" data-name="Caramel Latte" data-price="11.00" data-img="images/coffee_caramel_latte.png" aria-label="Add Caramel Latte to cart">+ Add</button>
+              </div>
+            </div>
+          </div>
+          <div class="item-card" id="item-americano">
+            <div class="item-img-wrap"><img src="images/coffee_americano.png" alt="Iced Americano" class="item-img" loading="lazy" /></div>
+            <div class="item-info">
+              <h3 class="item-name">Iced Americano</h3>
+              <p class="item-desc">Espresso over chilled water and ice, clean &amp; crisp.</p>
+              <div class="item-footer">
+                <span class="item-price">RM 8.00</span>
+                <button class="add-btn" data-name="Iced Americano" data-price="8.00" data-img="images/coffee_americano.png" aria-label="Add Iced Americano to cart">+ Add</button>
+              </div>
+            </div>
+          </div>
+          <div class="item-card" id="item-coldbrew">
+            <div class="item-img-wrap"><img src="images/coffee_coldbrew.png" alt="Cold Brew" class="item-img" loading="lazy" /></div>
+            <div class="item-info">
+              <h3 class="item-name">Cold Brew</h3>
+              <p class="item-desc">12-hour steeped cold brew, smooth and chocolatey.</p>
+              <div class="item-footer">
+                <span class="item-price">RM 12.00</span>
+                <button class="add-btn" data-name="Cold Brew" data-price="12.00" data-img="images/coffee_coldbrew.png" aria-label="Add Cold Brew to cart">+ Add</button>
+              </div>
+            </div>
+          </div>
+          <div class="item-card" id="item-matcha">
+            <div class="item-img-wrap"><img src="images/coffee_matcha.png" alt="Matcha Latte" class="item-img" loading="lazy" /></div>
+            <div class="item-info">
+              <h3 class="item-name">Matcha Latte</h3>
+              <p class="item-desc">Premium ceremonial grade matcha with steamed milk.</p>
+              <div class="item-footer">
+                <span class="item-price">RM 10.00</span>
+                <button class="add-btn" data-name="Matcha Latte" data-price="10.00" data-img="images/coffee_matcha.png" aria-label="Add Matcha Latte to cart">+ Add</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tea Panel -->
+      <div class="menu-panel" id="panel-tea" role="tabpanel" aria-labelledby="tab-tea">
+        <div class="item-grid">
+          <div class="item-card" id="item-english">
+            <div class="item-img-wrap"><img src="images/tea_english.png" alt="English Breakfast" class="item-img" loading="lazy" /></div>
+            <div class="item-info">
+              <h3 class="item-name">English Breakfast</h3>
+              <p class="item-desc">A robust classic blend, perfect with milk.</p>
+              <div class="item-footer">
+                <span class="item-price">RM 7.00</span>
+                <button class="add-btn" data-name="English Breakfast" data-price="7.00" data-img="images/tea_english.png" aria-label="Add English Breakfast to cart">+ Add</button>
+              </div>
+            </div>
+          </div>
+          <div class="item-card" id="item-chamomile">
+            <div class="item-img-wrap"><img src="images/tea_chamomile.png" alt="Chamomile Bloom" class="item-img" loading="lazy" /></div>
+            <div class="item-info">
+              <h3 class="item-name">Chamomile Bloom</h3>
+              <p class="item-desc">Delicate floral chamomile, naturally caffeine free.</p>
+              <div class="item-footer">
+                <span class="item-price">RM 7.00</span>
+                <button class="add-btn" data-name="Chamomile Bloom" data-price="7.00" data-img="images/tea_chamomile.png" aria-label="Add Chamomile to cart">+ Add</button>
+              </div>
+            </div>
+          </div>
+          <div class="item-card" id="item-peppermint">
+            <div class="item-img-wrap"><img src="images/tea_peppermint.png" alt="Peppermint Fresh" class="item-img" loading="lazy" /></div>
+            <div class="item-info">
+              <h3 class="item-name">Peppermint Fresh</h3>
+              <p class="item-desc">Cool and refreshing pure peppermint leaves.</p>
+              <div class="item-footer">
+                <span class="item-price">RM 7.00</span>
+                <button class="add-btn" data-name="Peppermint Fresh" data-price="7.00" data-img="images/tea_peppermint.png" aria-label="Add Peppermint to cart">+ Add</button>
+              </div>
+            </div>
+          </div>
+          <div class="item-card" id="item-earlgrey">
+            <div class="item-img-wrap"><img src="images/tea_earlgrey.png" alt="Earl Grey" class="item-img" loading="lazy" /></div>
+            <div class="item-info">
+              <h3 class="item-name">Earl Grey</h3>
+              <p class="item-desc">Bergamot-scented black tea, timeless and elegant.</p>
+              <div class="item-footer">
+                <span class="item-price">RM 8.00</span>
+                <button class="add-btn" data-name="Earl Grey" data-price="8.00" data-img="images/tea_earlgrey.png" aria-label="Add Earl Grey to cart">+ Add</button>
+              </div>
+            </div>
+          </div>
+          <div class="item-card" id="item-lemon-ginger">
+            <div class="item-img-wrap"><img src="images/tea_lemon_ginger.png" alt="Lemon Ginger" class="item-img" loading="lazy" /></div>
+            <div class="item-info">
+              <h3 class="item-name">Lemon Ginger</h3>
+              <p class="item-desc">Zesty lemon with warming ginger, soothing &amp; bright.</p>
+              <div class="item-footer">
+                <span class="item-price">RM 8.00</span>
+                <button class="add-btn" data-name="Lemon Ginger" data-price="8.00" data-img="images/tea_lemon_ginger.png" aria-label="Add Lemon Ginger to cart">+ Add</button>
+              </div>
+            </div>
+          </div>
+          <div class="item-card" id="item-sencha">
+            <div class="item-img-wrap"><img src="images/tea_sencha.png" alt="Green Sencha" class="item-img" loading="lazy" /></div>
+            <div class="item-info">
+              <h3 class="item-name">Green Sencha</h3>
+              <p class="item-desc">Premium Japanese sencha, grassy and umami-rich.</p>
+              <div class="item-footer">
+                <span class="item-price">RM 9.00</span>
+                <button class="add-btn" data-name="Green Sencha" data-price="9.00" data-img="images/tea_sencha.png" aria-label="Add Green Sencha to cart">+ Add</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Meals Panel -->
+      <div class="menu-panel" id="panel-meals" role="tabpanel" aria-labelledby="tab-meals">
+        <div class="item-grid">
+          <div class="item-card" id="item-avocado">
+            <div class="item-img-wrap"><img src="images/meal_avocado.png" alt="Avocado Toast" class="item-img" loading="lazy" /></div>
+            <div class="item-info">
+              <h3 class="item-name">Avocado Toast</h3>
+              <p class="item-desc">Sourdough, smashed avo, poached egg, microgreens.</p>
+              <div class="item-footer">
+                <span class="item-price">RM 16.00</span>
+                <button class="add-btn" data-name="Avocado Toast" data-price="16.00" data-img="images/meal_avocado.png" aria-label="Add Avocado Toast to cart">+ Add</button>
+              </div>
+            </div>
+          </div>
+          <div class="item-card" id="item-eggs">
+            <div class="item-img-wrap"><img src="images/meal_eggs.png" alt="Eggs Benedict" class="item-img" loading="lazy" /></div>
+            <div class="item-info">
+              <h3 class="item-name">Eggs Benedict</h3>
+              <p class="item-desc">Poached eggs, Canadian bacon &amp; hollandaise on muffin.</p>
+              <div class="item-footer">
+                <span class="item-price">RM 18.00</span>
+                <button class="add-btn" data-name="Eggs Benedict" data-price="18.00" data-img="images/meal_eggs.png" aria-label="Add Eggs Benedict to cart">+ Add</button>
+              </div>
+            </div>
+          </div>
+          <div class="item-card" id="item-wrap">
+            <div class="item-img-wrap"><img src="images/meal_wrap.png" alt="Grilled Chicken Wrap" class="item-img" loading="lazy" /></div>
+            <div class="item-info">
+              <h3 class="item-name">Grilled Chicken Wrap</h3>
+              <p class="item-desc">Tender grilled chicken, greens, tomatoes &amp; cheese.</p>
+              <div class="item-footer">
+                <span class="item-price">RM 17.00</span>
+                <button class="add-btn" data-name="Grilled Chicken Wrap" data-price="17.00" data-img="images/meal_wrap.png" aria-label="Add Chicken Wrap to cart">+ Add</button>
+              </div>
+            </div>
+          </div>
+          <div class="item-card" id="item-salad">
+            <div class="item-img-wrap"><img src="images/meal_salad.png" alt="Garden Salad Bowl" class="item-img" loading="lazy" /></div>
+            <div class="item-info">
+              <h3 class="item-name">Garden Salad Bowl</h3>
+              <p class="item-desc">Mixed greens, cherry tomatoes &amp; house vinaigrette.</p>
+              <div class="item-footer">
+                <span class="item-price">RM 15.00</span>
+                <button class="add-btn" data-name="Garden Salad Bowl" data-price="15.00" data-img="images/meal_salad.png" aria-label="Add Garden Salad to cart">+ Add</button>
+              </div>
+            </div>
+          </div>
+          <div class="item-card" id="item-salmon">
+            <div class="item-img-wrap"><img src="images/meal_salmon.png" alt="Smoked Salmon Bagel" class="item-img" loading="lazy" /></div>
+            <div class="item-info">
+              <h3 class="item-name">Smoked Salmon Bagel</h3>
+              <p class="item-desc">Cream cheese, salmon, capers &amp; red onion on bagel.</p>
+              <div class="item-footer">
+                <span class="item-price">RM 20.00</span>
+                <button class="add-btn" data-name="Smoked Salmon Bagel" data-price="20.00" data-img="images/meal_salmon.png" aria-label="Add Salmon Bagel to cart">+ Add</button>
+              </div>
+            </div>
+          </div>
+          <div class="item-card" id="item-pancakes">
+            <div class="item-img-wrap"><img src="images/meal_pancakes.png" alt="Banana Walnut Pancakes" class="item-img" loading="lazy" /></div>
+            <div class="item-info">
+              <h3 class="item-name">Banana Walnut Pancakes</h3>
+              <p class="item-desc">Fluffy stacks with banana, toasted walnuts &amp; maple.</p>
+              <div class="item-footer">
+                <span class="item-price">RM 14.00</span>
+                <button class="add-btn" data-name="Banana Walnut Pancakes" data-price="14.00" data-img="images/meal_pancakes.png" aria-label="Add Pancakes to cart">+ Add</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="section about-section">
+    <div class="container about-container">
+      <div class="about-image-wrap">
+        <img src="images/about.png" alt="Artisan coffee at Zack Cafe" class="about-img" />
+        <div class="about-badge"><span class="badge-number">Est.</span><span class="badge-year">2020</span></div>
+      </div>
+      <div class="about-content">
+        <p class="section-label">Our Story</p>
+        <h2 class="section-title">A Little Corner of Green</h2>
+        <p class="about-text">Nestled in the heart of the city, <strong>Zack Cafe</strong> was born from a love of good coffee and a deep respect for nature. Every drink we pour and every plate we serve is crafted with intention.</p>
+        <p class="about-text">We source our beans from sustainable farms, brew with care, and design every corner of our space to feel like a breath of fresh air.</p>
+        <div class="about-values">
+          <div class="value-chip" id="value-sustainable">🌱 Sustainable</div>
+          <div class="value-chip" id="value-handcrafted">✋ Handcrafted</div>
+          <div class="value-chip" id="value-cozy">🏡 Cozy Vibes</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VISIT -->
+  <section id="visit" class="section visit-section">
+    <div class="container">
+      <div class="section-header section-header--light">
+        <p class="section-label section-label--light">Come Say Hello</p>
+        <h2 class="section-title section-title--light">Visit Us</h2>
+      </div>
+      <div class="visit-grid">
+        <div class="visit-info" id="visit-info">
+          <div class="info-block" id="info-hours">
+            <h3 class="info-title">Opening Hours</h3>
+            <ul class="info-list">
+              <li><span>Mon – Fri</span><span>8:00 am – 9:00 pm</span></li>
+              <li><span>Saturday</span><span>9:00 am – 10:00 pm</span></li>
+              <li><span>Sunday</span><span>10:00 am – 7:00 pm</span></li>
+            </ul>
+          </div>
+          <div class="info-block" id="info-address">
+            <h3 class="info-title">Address</h3>
+            <address class="info-address">No. 12, Jalan Hijau,<br />Taman Alam Damai,<br />56000 Kuala Lumpur, Malaysia.</address>
+          </div>
+          <div class="info-block" id="info-social">
+            <h3 class="info-title">Follow Us</h3>
+            <div class="social-links">
+              <a href="https://www.instagram.com/z.smote.1" target="_blank" rel="noopener noreferrer" class="social-link" id="social-instagram" aria-label="Instagram">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                zack.cafe
+              </a>
+              <a href="https://www.facebook.com/zack.cafe" target="_blank" rel="noopener noreferrer" class="social-link" id="social-facebook" aria-label="Facebook">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+                zack.cafe
+              </a>
+              <a href="https://www.tiktok.com/@zack.cafe" target="_blank" rel="noopener noreferrer" class="social-link" id="social-tiktok" aria-label="TikTok">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/></svg>
+                zack.cafe
+              </a>
+              <a href="https://www.threads.net/@zack.cafe" target="_blank" rel="noopener noreferrer" class="social-link" id="social-threads" aria-label="Threads">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/><path d="M8 12c0-2.21 1.79-4 4-4 1.55 0 2.9.88 3.58 2.17M16 12.5c0 2.21-1.79 3.5-4 3.5a3.5 3.5 0 0 1-3.5-3.5"/><path d="M16 8v8"/></svg>
+                zack.cafe
+              </a>
+              <a href="https://x.com/zack_cafe" target="_blank" rel="noopener noreferrer" class="social-link" id="social-x" aria-label="X (Twitter)">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4l16 16M4 20L20 4"/></svg>
+                zack.cafe
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="visit-map" id="visit-map">
+          <iframe title="Zack Cafe Location" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3984.0516490745157!2d101.7419987!3d3.0737698!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31cc362f48b3c8b5%3A0x3a5f4a7e4b8f7e3a!2sTaman%20Alam%20Damai%2C%20Kuala%20Lumpur!5e0!3m2!1sen!2smy!4v1714123456789" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer-bar">
+    <p>© 2026 Zack Cafe. Made with <span class="heart">♥</span> and great coffee.</p>
+  </footer>
+
+  <!-- Order Toast -->
+  <div class="toast" id="toast" role="alert" aria-live="polite"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
